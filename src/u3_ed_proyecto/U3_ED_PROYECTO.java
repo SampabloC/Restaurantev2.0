@@ -14,10 +14,28 @@ public class U3_ED_PROYECTO {
         Mesa m = new Mesa();
         int opc = 0;
         // Restaurante
-        System.out.println("estas bien tronco");
-        System.out.println("prueba v2.5");
-        System.out.println("");
-        System.out.println("");
+        do {
+            System.out.println("- - - - - Menú de opciones - - - - -");
+            System.out.println("1.- Llegada de clientes"); //altas
+            System.out.println("2.- Salida de clientes"); //bajas
+            System.out.println("3.- Mostrar mesas"); //mostrar
+            System.out.println("4.- Mostrar disponibilidad de mesas"); //¿vacio?
+            opc = leer.nextInt();
+            switch (opc) {
+                case 1:
+                    System.out.println("\n\tAsignación de Mesa");
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }
+        } while (opc != 20);
+
     }
 
 }
