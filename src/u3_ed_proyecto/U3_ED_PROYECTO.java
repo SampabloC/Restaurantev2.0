@@ -14,6 +14,7 @@ public class U3_ED_PROYECTO {
         Mesa m = new Mesa();
         int opc = 0;
         // Restaurante
+        System.out.println("estas bien tronco");
         System.out.println("prueba v2.5");
         System.out.println("");
         System.out.println("");
