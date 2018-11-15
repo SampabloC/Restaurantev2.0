@@ -11,15 +11,15 @@ public class Mesa {
     mesa inicio;
     mesa nuevo;
     mesa fin;
-    Cuenta c = new Cuenta();
 
-    static class mesa {
+    class mesa {
         mesa sigue;
+        mesa atras;
         String mesero;
         double cuenta;
         String nombre;
         int mesa;
-        
+        mesa platos;
     }
 
     void Insertar() {
@@ -30,6 +30,8 @@ public class Mesa {
         } else {
             if (nuevo.mesa < inicio.mesa) {
                 nuevo.sigue = inicio;
+                inicio.atras = nuevo;
+                inicio = nuevo;
             }
         }
     }

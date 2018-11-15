@@ -9,15 +9,14 @@ package u3_ed_proyecto;
  *
  * @author Javier Ismael Sampablo Cuevas
  */
-public class Cuenta {
+public class Platos {
 
-    cuenta o = new cuenta();
-    cuenta sigue;
-    cuenta inicio;
-    cuenta fin;
+   platos inicio;
+   platos fin;
 
-    class cuenta {
-
+    class platos {
+        int comensal;
+        platos sigue;
         double precio;
         String platillo;
     }
