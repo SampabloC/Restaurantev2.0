@@ -11,6 +11,7 @@ public class U3_ED_PROYECTO {
     static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Platos p = new Platos();
         Mesa m = new Mesa();
         int opc = 0;
         // Restaurante
@@ -23,7 +24,10 @@ public class U3_ED_PROYECTO {
             opc = leer.nextInt();
             switch (opc) {
                 case 1:
+                    Platos nuevo = new Platos();
                     System.out.println("\n\tAsignación de Mesa");
+                    System.out.println("registro de platos");
+                    
                     break;
                 case 2:
                     break;

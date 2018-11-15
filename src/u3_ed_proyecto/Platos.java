@@ -8,19 +8,20 @@ import static u3_ed_proyecto.U3_ED_PROYECTO.leer;
  */
 public class Platos {
 
-    platos p = new platos();
-    platos inicio;
-    platos fin;
-
-    class platos {
-
+     class platos {
         int comensal;
         platos sigue;
         double precio;
         String platillo;
     }
+     
+    platos p = new platos();
+    platos inicio;
+    platos fin;
 
-    void registroPlatos() {
+   
+
+    /*void registroPlatos() {
         platos nuevo = new platos();
         System.out.println(" Cuenta ");
         System.out.print("Registre número de comensal: ");
@@ -30,10 +31,11 @@ public class Platos {
         System.out.print("Precio del platillo: ");
         nuevo.precio = leer.nextDouble();
         nuevo.sigue = null;
-        Insertar(nuevo);
-    }
+        Insertar(p);
+    }*/
 
     void Insertar(platos nuevo) {
+        nuevo.sigue = null;
         System.out.println(nuevo);
         if (inicio == null) {
             inicio = nuevo;

@@ -9,7 +9,6 @@ public class Mesa {
     mesa sigue;
     mesa ant;
     mesa inicio;
-    mesa nuevo;
     mesa fin;
 
     class mesa {
@@ -22,7 +21,11 @@ public class Mesa {
         mesa platos;
     }
 
-    void Insertar() {
+    void Datos() {
+        
+    }
+    
+    void Insertar(mesa nuevo) {
         mesa aux;
         if (inicio == null) {
             inicio = nuevo;
