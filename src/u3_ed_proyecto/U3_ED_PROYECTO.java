@@ -12,6 +12,7 @@ public class U3_ED_PROYECTO {
     static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) {
+        System.out.println("Samapablo es puto :v");
         Platos p = new Platos();
         Mesa m = new Mesa();
         int opc = 0;
