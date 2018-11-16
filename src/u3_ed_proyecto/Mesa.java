@@ -8,7 +8,9 @@ import static u3_ed_proyecto.U3_ED_PROYECTO.leer;
  */
 public class Mesa {
 
+    Platos p = new Platos();
     Boolean bol = true;
+
     class mesa {
 
         mesa sigue;
@@ -24,12 +26,6 @@ public class Mesa {
     mesa ant;
     mesa inicio;
     mesa fin;
-
-   
-
-    void Datos() {
-
-    }
 
     void Insertar(mesa nuevo) {
         mesa aux;
@@ -60,13 +56,26 @@ public class Mesa {
                 bol = false;
             }
         } while (bol == false);
-        nuevo.mesa=nummes;
+        nuevo.mesa = nummes;
         System.out.print("Teclea el nombre del mesero: ");
-        nuevo.mesero= leer.nextLine();
+        nuevo.mesero = leer.nextLine();
         System.out.print("Teclea el Nombre del Cliente: ");
-        nuevo.nombre=leer.nextLine();
+        nuevo.nombre = leer.nextLine();
+        this.Insertar(nuevo);
+        System.out.println("¿Tomar pedido?[S/N]");
+        String ch = leer.next().toUpperCase();
+        if ("S".equals(ch) || "N".equals(ch)) {
+            if ("S".equals(ch)) {
+                p.Registro();
+            } else {
+                System.out.println("Vuelva en unos min.");
+            }
+        } else {
+            System.out.println("Selección invalida");
+        }
     }
-        void Mostrar() {
+
+    void Mostrar() {
         mesa aux = inicio;
         if (aux == null) {
             System.out.println("Mesas vacias");
@@ -75,6 +84,19 @@ public class Mesa {
             while (aux != null) {
                 System.out.println(aux.mesa + " " + aux.mesero + " " + aux.nombre);
                 aux = aux.sigue;
+            }
+            System.out.println("Cuenta");
+            p.Cuenta();
+            System.out.println("¿Mostrar Platos?[S/N]");
+            String ch = leer.next().toUpperCase();
+            if ("S".equals(ch) || "N".equals(ch)) {
+                if ("S".equals(ch)) {
+                    p.Mostrar();
+                } else {
+                    System.out.println("Vuelva en unos min.");
+                }
+            } else {
+                System.out.println("Selección invalida");
             }
         }
     }

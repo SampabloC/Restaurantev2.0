@@ -40,9 +40,10 @@ public class U3_ED_PROYECTO {
                     Platos nuevo = new Platos();
                     System.out.println("\n\tAsignación de Mesa");
                     System.out.println("\tRegistro de platillos");
-                    p.registroPlatos();
+                    m.Registro();
                     break;
                 case 2:
+                    m.Mostrar();
                     break;
                 case 3:
                     break;
