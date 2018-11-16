@@ -7,12 +7,11 @@ import java.util.Scanner;
  * @author Javier Ismael Sampablo Cuevas
  */
 public class U3_ED_PROYECTO {
-    Boolean bol = true;
+    static Boolean bol = true;
 
     static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("Samapablo es puto :v");
         Platos p = new Platos();
         Mesa m = new Mesa();
         int opc = 0;
@@ -23,7 +22,19 @@ public class U3_ED_PROYECTO {
             System.out.println("2.- Salida de clientes"); //bajas
             System.out.println("3.- Mostrar mesas"); //mostrar
             System.out.println("4.- Mostrar disponibilidad de mesas"); //¿vacio?
-            opc = leer.nextInt();
+            do{
+                System.out.println("////Elección////"); 
+                try{
+                    opc = leer.nextInt();
+                    bol = true;
+                    leer.nextLine();
+                }catch(java.util.InputMismatchException e){
+                    leer.nextLine();
+                    System.out.println("No es un dato entero");
+                    bol = false;
+                }
+            }while(bol == false);
+            
             switch (opc) {
                 case 1:
                     Platos nuevo = new Platos();
