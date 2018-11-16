@@ -8,6 +8,8 @@ import static u3_ed_proyecto.U3_ED_PROYECTO.leer;
  */
 public class Platos {
 
+    boolean bol = true;
+
     class platos {
 
         int comensal;
@@ -21,12 +23,24 @@ public class Platos {
     platos fin;
 
     void registroPlatos() {
-        int op;
+        int op = 0;
         do {
             System.out.println("Menú para los platillos");
             System.out.println("1.- Alta de platos");
             System.out.println("2.- Mostrar ordenes y costos"); //mostrar platos
-            op = leer.nextInt();
+            do {
+                System.out.println("////Elección////");
+                try {
+                    op = leer.nextInt();
+                    bol = true;
+                    leer.nextLine();
+                } catch (java.util.InputMismatchException e) {
+                    leer.nextLine();
+                    System.out.println("No es un dato entero");
+                    bol = false;
+                }
+            } while (bol == true);
+
             switch (op) {
                 case 1:
                     this.Registro();
@@ -40,20 +54,43 @@ public class Platos {
     }
 
     void Registro() {
+        int num = 0;
 //        platos nuevo = new platos();
         System.out.println(" Cuenta ");
         System.out.print("Número de comensales: ");
-        int num = leer.nextInt();
+        do {
+            try {
+                num = leer.nextInt();
+                bol = true;
+                leer.nextLine();
+            } catch (java.util.InputMismatchException e) {
+                leer.nextLine();
+                System.out.println("No es un dato entero");
+                bol = false;
+            }
+
+        } while (bol == false);
         for (int i = 1; i <= num; i++) {
             platos nuevo = new platos();
 //            System.out.print("Registre número de comensal: ");
-        nuevo.comensal = i;
-        System.out.println("Registre plato del comensal no. " + i);
-        nuevo.platillo = leer.next();
-        System.out.print("Precio del platillo: ");
-        nuevo.precio = leer.nextDouble();
-        nuevo.sigue = null;
-        Insertar(nuevo);
+            nuevo.comensal = i;
+            System.out.println("Registre plato del comensal no. " + i);
+            nuevo.platillo = leer.next();
+            System.out.print("Precio del platillo: ");
+            do {
+                try {
+                    nuevo.precio = leer.nextDouble();
+                    bol = true;
+                    leer.nextLine();
+                } catch (java.util.InputMismatchException e) {
+                    leer.nextLine();
+                    System.out.println("No es un dato entero");
+                    bol = false;
+                }
+
+            } while (bol == false);
+            nuevo.sigue = null;
+            Insertar(nuevo);
         }
         /*System.out.print("Registre número de comensal: ");
         nuevo.comensal = leer.nextInt();
