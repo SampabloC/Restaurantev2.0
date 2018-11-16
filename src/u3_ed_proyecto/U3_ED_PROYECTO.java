@@ -7,6 +7,7 @@ import java.util.Scanner;
  * @author Javier Ismael Sampablo Cuevas
  */
 public class U3_ED_PROYECTO {
+    Boolean bol = true;
 
     static Scanner leer = new Scanner(System.in);
 
