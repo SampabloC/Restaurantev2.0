@@ -26,8 +26,8 @@ public class U3_ED_PROYECTO {
                 case 1:
                     Platos nuevo = new Platos();
                     System.out.println("\n\tAsignación de Mesa");
-                    System.out.println("registro de platos");
-                    
+                    System.out.println("\tRegistro de platillos");
+                    p.registroPlatos();
                     break;
                 case 2:
                     break;

@@ -8,20 +8,38 @@ import static u3_ed_proyecto.U3_ED_PROYECTO.leer;
  */
 public class Platos {
 
-     class platos {
+    class platos {
+
         int comensal;
         platos sigue;
         double precio;
         String platillo;
     }
-     
+
     platos p = new platos();
     platos inicio;
     platos fin;
 
-   
+    void registroPlatos() {
+        int op;
+        do {
+            System.out.println("Menú para los platillos");
+            System.out.println("1.- Alta de platos");
+            System.out.println("2.- Mostrar ordenes y costos"); //mostrar platos
+            op = leer.nextInt();
+            switch (op) {
+                case 1:
+                    this.Registro();
+                    break;
+                case 2:
+                    this.Mostrar();
+                    this.Cuenta();
+                    break;
+            }
+        } while (op != 3);
+    }
 
-    /*void registroPlatos() {
+    void Registro() {
         platos nuevo = new platos();
         System.out.println(" Cuenta ");
         System.out.print("Registre número de comensal: ");
@@ -31,8 +49,8 @@ public class Platos {
         System.out.print("Precio del platillo: ");
         nuevo.precio = leer.nextDouble();
         nuevo.sigue = null;
-        Insertar(p);
-    }*/
+        Insertar(nuevo);
+    }
 
     void Insertar(platos nuevo) {
         nuevo.sigue = null;
@@ -41,11 +59,7 @@ public class Platos {
             inicio = nuevo;
             fin = nuevo;
         } else {
-            if (nuevo.comensal == nuevo.comensal) {
-                System.out.println("Ya se registro el comensal");
-            } else {
-                fin.sigue = nuevo;
-            }
+            fin.sigue = nuevo;
         }
     }
 
@@ -56,9 +70,19 @@ public class Platos {
         } else {
             System.out.println("Comensal\tPlatillo\tCosto");
             while (aux != null) {
-                System.out.println(p.comensal + " " + p.platillo + " " + p.precio);
+                System.out.println(aux.comensal + " " + aux.platillo + " " + aux.precio);
                 aux = aux.sigue;
             }
         }
+    }
+
+    void Cuenta() {
+        platos aux = inicio;
+        double cuenta = 0;
+        while (aux != null) {
+            cuenta = cuenta + aux.precio;
+            aux = aux.sigue;
+        }
+        System.out.println("La cuenta es de $" + cuenta + " pesos.");
     }
 }
