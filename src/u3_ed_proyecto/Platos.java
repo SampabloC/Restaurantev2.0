@@ -72,7 +72,6 @@ public class Platos {
         } while (bol == false);
         for (int i = 1; i <= num; i++) {
             platos nuevo = new platos();
-//            System.out.print("Registre número de comensal: ");
             nuevo.comensal = i;
             System.out.println("Registre plato del comensal no. " + i);
             nuevo.platillo = leer.next();
@@ -92,14 +91,6 @@ public class Platos {
             nuevo.sigue = null;
             Insertar(nuevo);
         }
-        /*System.out.print("Registre número de comensal: ");
-        nuevo.comensal = leer.nextInt();
-        System.out.println("Registre plato del comensal no. " + nuevo.comensal);
-        nuevo.platillo = leer.next();
-        System.out.print("Precio del platillo: ");
-        nuevo.precio = leer.nextDouble();
-        nuevo.sigue = null;
-        Insertar(nuevo);*/
     }
 
     void Insertar(platos nuevo) {
