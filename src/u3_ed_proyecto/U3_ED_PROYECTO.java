@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Javier Ismael Sampablo Cuevas
+ * @author Javier Ismael Sampablo Cuevas && David Oliver Cano Pizano
  */
 public class U3_ED_PROYECTO {
 

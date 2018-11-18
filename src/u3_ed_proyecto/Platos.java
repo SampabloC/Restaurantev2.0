@@ -4,7 +4,7 @@ import static u3_ed_proyecto.U3_ED_PROYECTO.leer;
 
 /**
  *
- * @author Javier Ismael Sampablo Cuevas
+ * @author Javier Ismael Sampablo Cuevas && David Oliver Cano 
  */
 public class Platos {
 
