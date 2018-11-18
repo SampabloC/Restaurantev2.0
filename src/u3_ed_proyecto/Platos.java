@@ -70,12 +70,14 @@ public class Platos {
             }
 
         } while (bol == false);
+        this.Menu();
         for (int i = 1; i <= num; i++) {
             platos nuevo = new platos();
             nuevo.comensal = i;
-            System.out.println("Registre plato del comensal no. " + i);
-            nuevo.platillo = leer.next();
-            System.out.print("Precio del platillo: ");
+            System.out.println("Registre plato del comensal no. " + i + " (Seleccione el número del menú).");
+            int plato = leer.nextInt();
+            this.Platillo(plato,nuevo);
+           /* System.out.print("Precio del platillo: ");
             do {
                 try {
                     nuevo.precio = leer.nextDouble();
@@ -88,8 +90,9 @@ public class Platos {
                 }
 
             } while (bol == false);
+            */
             nuevo.sigue = null;
-            Insertar(nuevo);
+          //  Insertar(nuevo);
         }
     }
 
@@ -144,5 +147,47 @@ public class Platos {
             aux = aux.sigue;
         }
         System.out.println("La cuenta es de $" + cuenta + " pesos.");
+    }
+    
+    void Menu() {
+        System.out.println("                Menú");
+        System.out.println("Platillo\tPrecio");
+        System.out.println("1. Pasta\t$85.50");
+        System.out.println("2. Sopa\t$42.00");
+        System.out.println("3. Ensalada\t$62.90");
+        System.out.println("4. Arroz\t$50.00");
+        System.out.println("5. Pizza\t$99.99");
+        System.out.println("6. Lasagna\t$65.20");
+        System.out.println("\n\n(Todos los alimentos incluyen bebida)");
+    }
+    
+    void Platillo(int n, Platos.platos nuevo) {
+        switch (n) {
+            case 1:
+                nuevo.platillo = "Pasta";
+                nuevo.precio = 85.50;
+                break;
+            case 2:
+                nuevo.platillo = "Sopa";
+                nuevo.precio = 42;
+                break;
+            case 3:
+                nuevo.platillo = "Ensalada";
+                nuevo.precio = 62.90;
+                break;
+            case 4:
+                nuevo.platillo = "Arroz";
+                nuevo.precio = 50;                
+                break;
+            case 5:
+                nuevo.platillo = "Pizza";
+                nuevo.precio = 99.99;
+                break;
+            case 6:
+                nuevo.platillo = "Lasagna";
+                nuevo.precio = 62.50;
+                break;
+        }
+        this.Insertar(nuevo);
     }
 }
