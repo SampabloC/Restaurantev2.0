@@ -23,39 +23,8 @@ public class Platos {
     platos inicio;
     platos fin;
 
-    /*void registroPlatos() {
-        int op = 0;
-        do {
-            System.out.println("Menú para los platillos");
-            System.out.println("1.- Alta de platos");
-            System.out.println("2.- Mostrar ordenes y costos"); //mostrar platos
-            do {
-                System.out.println("////Elección////");
-                try {
-                    op = leer.nextInt();
-                    bol = true;
-                    leer.nextLine();
-                } catch (java.util.InputMismatchException e) {
-                    leer.nextLine();
-                    System.out.println("No es un dato entero");
-                    bol = false;
-                }
-            } while (bol == true);
-
-            switch (op) {
-                case 1:
-                    this.Registro();
-                    break;
-                case 2:
-                    this.Mostrar();
-                    this.Cuenta();
-                    break;
-            }
-        } while (op != 3);
-    }*/
     void Registro(int nummesa) {
         int num = 0;
-//        platos nuevo = new platos();
         System.out.println(" Cuenta ");
         System.out.print("Número de comensales: ");
         do {
@@ -78,22 +47,7 @@ public class Platos {
             int plato = leer.nextInt();
             nuevo.nummesa = nummesa;
             this.Platillo(plato, nuevo, nummesa);
-            /* System.out.print("Precio del platillo: ");
-            do {
-                try {
-                    nuevo.precio = leer.nextDouble();
-                    bol = true;
-                    leer.nextLine();
-                } catch (java.util.InputMismatchException e) {
-                    leer.nextLine();
-                    System.out.println("No es un dato entero");
-                    bol = false;
-                }
-
-            } while (bol == false);
-             */
             nuevo.sigue = null;
-            //  Insertar(nuevo);
         }
     }
 
@@ -193,11 +147,24 @@ public class Platos {
         this.Insertar(nuevo);
     }
 
-    void Eliminar() {
+    void Eliminar(int num) {
         /*
-        platos aux = null;
+        platos aux = inicio;
         platos ant = null;
-          int num = leer.nextInt();
+
+        while (aux != null) {
+            if (aux.nummesa == n) {
+                cuenta = cuenta + aux.precio;
+                if (aux.sigue != null) {
+                    aux = aux.sigue;
+                } else {
+                    aux = null;
+                }
+            } else {
+                aux = aux.sigue;
+            }
+        break;
+        }
           if(eliminar < inicio || eliminar > fin.edad) {
             System.out.println("El dato no existe");
           }else {

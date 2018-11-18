@@ -1,6 +1,5 @@
 package u3_ed_proyecto;
 
-import java.util.Locale;
 import static u3_ed_proyecto.U3_ED_PROYECTO.leer;
 
 /**
@@ -47,38 +46,39 @@ public class Mesa {
     }
 
     void Registro(int nummesa) {
-        // int nummesa = 0;
-        mesa nuevo = new mesa();
-        /*System.out.println("Teclea el número de mesa: ");                 //OPCIONAL - Borrar
-        do {
-            try {
-                nummesa = leer.nextInt();
-                bol = true;
-                leer.nextLine();
-            } catch (java.util.InputMismatchException e) {
-                leer.nextLine();
-                System.out.println("No es un dato entero");
-                bol = false;
+        boolean libre = true;
+        if (!this.Vacio()) {
+            mesa aux = inicio;
+            while (aux != null) {
+                if (aux.mesa == nummesa) {
+                    System.out.println("Mesa ocupada");
+                    libre = false;
+                    aux = null;
+                } else {
+                    aux = aux.sigue;
+                }
             }
-        } while (bol == false);
-         */
-        nuevo.mesa = nummesa;
-        System.out.print("Teclea el nombre del mesero: ");
-        nuevo.mesero = leer.nextLine();
-        System.out.print("Teclea el Nombre del Cliente: ");
-        nuevo.nombre = leer.nextLine().toLowerCase();
-        nuevo.platos = null;
-        this.Insertar(nuevo);
-        System.out.println("¿Tomar pedido?[S/N]");
-        String ch = leer.next().toUpperCase();
-        if ("S".equals(ch) || "N".equals(ch)) {
-            if ("S".equals(ch)) {
-                p.Registro(nummesa);
+        }
+        if (libre == true) {
+            mesa nuevo = new mesa();
+            nuevo.mesa = nummesa;
+            System.out.print("Teclea el nombre del mesero: ");
+            nuevo.mesero = leer.nextLine();
+            System.out.print("Teclea el Nombre del Cliente: ");
+            nuevo.nombre = leer.nextLine().toLowerCase();
+            nuevo.platos = null;
+            this.Insertar(nuevo);
+            System.out.println("¿Tomar pedido?[S/N]");
+            String ch = leer.next().toUpperCase();
+            if ("S".equals(ch) || "N".equals(ch)) {
+                if ("S".equals(ch)) {
+                    p.Registro(nummesa);
+                } else {
+                    System.out.println("Vuelva en unos min.");
+                }
             } else {
-                System.out.println("Vuelva en unos min.");
+                System.out.println("Selección invalida");
             }
-        } else {
-            System.out.println("Selección invalida");
         }
     }
 
@@ -100,12 +100,12 @@ public class Mesa {
                     aux = aux.sigue;
                 }
             }
-            System.out.println("Cuenta");
-            p.cuentaGeneral();
-            System.out.println("¿Mostrar Platos?[S/N]");
+            System.out.println("¿Mostrar Cuenta y platillos?[S/N]");
             String ch = leer.next().toUpperCase();
             if ("S".equals(ch) || "N".equals(ch)) {
                 if ("S".equals(ch)) {
+                    System.out.println("Cuenta");
+                    p.cuentaGeneral();
                     p.Mostrar();
                 }
             } else {
@@ -114,53 +114,53 @@ public class Mesa {
         }
     }
 
-    boolean  Vacio() {
+    boolean Vacio() {
         return inicio == null;
     }
+
     void Eliminar() {
         String salida = "";
         int n = 0;
         boolean salio = false;
         if (!this.Vacio()) {
             System.out.print("Cliente a salir: ");
-        salida = leer.next().toLowerCase();
-        if (salida.equals(inicio.nombre)) {
-            if (inicio == fin) {
-                inicio = null;
-                fin = null;
-            } else {
-                inicio = inicio.sigue;
-                inicio.atras = null;
-            }
-            salio = true;
-        } else {
-            if (salida.equals(fin.nombre)) {
-                fin = fin.atras;
-                fin.sigue = null;
+            salida = leer.next().toLowerCase();
+            if (salida.equals(inicio.nombre)) {
+                if (inicio == fin) {
+                    inicio = null;
+                    fin = null;
+                } else {
+                    inicio = inicio.sigue;
+                    inicio.atras = null;
+                }
                 salio = true;
             } else {
-                mesa aux = inicio.sigue;
-                while (aux != null) {
-                    if (salida.equals(aux.nombre)) {
-                        n = aux.mesa;
-                        aux.atras.sigue = aux.sigue;
-                        aux.sigue.atras = aux.atras;
-                        salio = true;
-                        aux = null;
-                    } else {
-                        aux = aux.sigue;
+                if (salida.equals(fin.nombre)) {
+                    fin = fin.atras;
+                    fin.sigue = null;
+                    salio = true;
+                } else {
+                    mesa aux = inicio.sigue;
+                    while (aux != null) {
+                        if (salida.equals(aux.nombre)) {
+                            n = aux.mesa;
+                            aux.atras.sigue = aux.sigue;
+                            aux.sigue.atras = aux.atras;
+                            salio = true;
+                            aux = null;
+                        } else {
+                            aux = aux.sigue;
+                        }
                     }
                 }
             }
-        }
-        
-        if (!salio) {
-            System.out.println("No está el cliente registrado");
+            if (!salio) {
+                System.out.println("No está el cliente registrado");
+            } else {
+                System.out.println("Sale el cliente " + salida);
+                p.Cuenta1(n);
+            }
         } else {
-            System.out.println("Sale el cliente " + salida);
-            p.Cuenta1(n);
-        }
-        }else {
             System.out.println("Restaurante vacio");
         }
     }

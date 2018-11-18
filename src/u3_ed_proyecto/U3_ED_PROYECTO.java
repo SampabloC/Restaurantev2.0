@@ -16,18 +16,12 @@ public class U3_ED_PROYECTO {
         Platos p = new Platos();
         Mesa m = new Mesa();
         int opc = 0;
-        // Restaurante
-        do {                //acomodar el main
-                               
-
+        do {
             System.out.println("~~~~~~~~~~Restaurante~~~~~~~~~~~~~~\n");
-            //System.out.println("Mesa 1\tMesa 2\tMesa 3\tMesa 4\tMesa 5");
-
             System.out.println("1.- Registro de clientes."); //altas
             System.out.println("2.- Mostrar mesas."); //mostrar
             System.out.println("3.- Salida de clientes."); //bajas
             System.out.println("4.- Salida del menú.");
-            //System.out.println("4.- Mostrar disponibilidad de mesas"); //¿vacio?
             do {
                 System.out.print("Opción: ");
                 try {
@@ -56,15 +50,13 @@ public class U3_ED_PROYECTO {
                         }
                     } while (nummes < 1 && nummes > 5);
                     m.Registro(nummes);
-                    //problemas en el registro de platos (hace acumulacion)
-                    //  m.Disponibilidad(nummes);
                     break;
                 case 2:
                     m.Mostrar();
                     break;
                 case 3:
                     System.out.println("Salida de clientes");
-                    m.Eliminar(); //se debe conectar automaticamente con la cuenta de esa mesa
+                    m.Eliminar();
                     break;
             }
         } while (opc != 4);
