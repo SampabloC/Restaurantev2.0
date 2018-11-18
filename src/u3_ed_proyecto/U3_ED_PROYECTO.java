@@ -21,7 +21,8 @@ public class U3_ED_PROYECTO {
             System.out.println("1.- Registro de clientes."); //altas
             System.out.println("2.- Mostrar mesas."); //mostrar
             System.out.println("3.- Salida de clientes."); //bajas
-            System.out.println("4.- Salida del menú.");
+            System.out.println("4.- Reorden de platos");
+            System.out.println("5.- Salida del menú.");
             do {
                 System.out.print("Opción: ");
                 try {
@@ -58,8 +59,21 @@ public class U3_ED_PROYECTO {
                     System.out.println("Salida de clientes");
                     m.Eliminar();
                     break;
+                case 4:
+                    int nummesa = 0;
+                    System.out.println("\nReorden de platillos.");
+                    System.out.println("Selecciones la mesa (1-5)");
+                    do {
+                        try{
+                            nummesa = leer.nextInt();
+                        }catch(Exception e) {
+                            System.out.println("Dato invalido");
+                        }
+                    } while (nummesa <1 && nummesa >5);
+                    m.Reordenar(nummesa);
+                    break;
             }
-        } while (opc != 4);
+        } while (opc != 5);
 
     }
 

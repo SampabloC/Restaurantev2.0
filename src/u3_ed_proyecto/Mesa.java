@@ -82,6 +82,19 @@ public class Mesa {
         }
     }
 
+    void Reordenar(int nummesa) {
+        if (!this.Vacio()) {
+            mesa aux = inicio;
+            while (aux != null) {
+                if (aux.mesa == nummesa) {
+                    p.Registro(nummesa);
+                    aux = null;
+                }else {
+                    aux = aux.sigue;
+                }
+            }
+        }
+    }
     void Mostrar() {
         mesa aux = inicio;
         if (aux == null) {
