@@ -20,17 +20,16 @@ public class U3_ED_PROYECTO {
         do {                //acomodar el main
                                
 
-            System.out.println("~~~~~~~~~~Restaurante~~~~~~~~~~~~~~");
+            System.out.println("~~~~~~~~~~Restaurante~~~~~~~~~~~~~~\n");
             //System.out.println("Mesa 1\tMesa 2\tMesa 3\tMesa 4\tMesa 5");
 
-            System.out.println("- - - - - Menú de opciones - - - - -");
-            System.out.println("1.- Llegada de clientes."); //altas
+            System.out.println("1.- Registro de clientes."); //altas
             System.out.println("2.- Mostrar mesas."); //mostrar
             System.out.println("3.- Salida de clientes."); //bajas
             System.out.println("4.- Salida del menú.");
             //System.out.println("4.- Mostrar disponibilidad de mesas"); //¿vacio?
             do {
-                System.out.println("////Elección////");
+                System.out.print("Opción: ");
                 try {
                     opc = leer.nextInt();
                     bol = true;
@@ -47,7 +46,6 @@ public class U3_ED_PROYECTO {
                     int nummes = 0;
                     System.out.println("\n\tAsignación de Mesa");
                     System.out.println("Seleccione una mesa (1-5)");
-
                     do {
                         try {
                             nummes = leer.nextInt();
@@ -67,10 +65,6 @@ public class U3_ED_PROYECTO {
                 case 3:
                     System.out.println("Salida de clientes");
                     m.Eliminar(); //se debe conectar automaticamente con la cuenta de esa mesa
-                    break;
-                case 4:
-                    break;
-                case 5:
                     break;
             }
         } while (opc != 4);

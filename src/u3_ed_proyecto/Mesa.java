@@ -62,9 +62,7 @@ public class Mesa {
             }
         } while (bol == false);
          */
-        System.out.println(nummesa);
         nuevo.mesa = nummesa;
-        System.out.println(nuevo.mesa);
         System.out.print("Teclea el nombre del mesero: ");
         nuevo.mesero = leer.nextLine();
         System.out.print("Teclea el Nombre del Cliente: ");
@@ -75,7 +73,7 @@ public class Mesa {
         String ch = leer.next().toUpperCase();
         if ("S".equals(ch) || "N".equals(ch)) {
             if ("S".equals(ch)) {
-                p.Registro();
+                p.Registro(nummesa);
             } else {
                 System.out.println("Vuelva en unos min.");
             }
@@ -95,7 +93,7 @@ public class Mesa {
             while (aux != null) {
                 if (num == aux.mesa) {
                     while (aux != null) {
-                        System.out.println(aux.mesa + " " + aux.mesero + " " + aux.nombre);
+                        System.out.println(aux.mesa + "\t" + aux.mesero + "\t" + aux.nombre);
                         aux = null;
                     }
                 } else {
@@ -103,7 +101,7 @@ public class Mesa {
                 }
             }
             System.out.println("Cuenta");
-            p.Cuenta();
+            p.cuentaGeneral();
             System.out.println("¿Mostrar Platos?[S/N]");
             String ch = leer.next().toUpperCase();
             if ("S".equals(ch) || "N".equals(ch)) {
@@ -116,10 +114,15 @@ public class Mesa {
         }
     }
 
+    boolean  Vacio() {
+        return inicio == null;
+    }
     void Eliminar() {
-        String salida;
+        String salida = "";
+        int n = 0;
         boolean salio = false;
-        System.out.print("Cliente a salir: ");
+        if (!this.Vacio()) {
+            System.out.print("Cliente a salir: ");
         salida = leer.next().toLowerCase();
         if (salida.equals(inicio.nombre)) {
             if (inicio == fin) {
@@ -139,6 +142,7 @@ public class Mesa {
                 mesa aux = inicio.sigue;
                 while (aux != null) {
                     if (salida.equals(aux.nombre)) {
+                        n = aux.mesa;
                         aux.atras.sigue = aux.sigue;
                         aux.sigue.atras = aux.atras;
                         salio = true;
@@ -149,12 +153,15 @@ public class Mesa {
                 }
             }
         }
-        salida = salida.toUpperCase(Locale.ITALY);
+        
         if (!salio) {
             System.out.println("No está el cliente registrado");
         } else {
             System.out.println("Sale el cliente " + salida);
-            p.Cuenta();
+            p.Cuenta1(n);
+        }
+        }else {
+            System.out.println("Restaurante vacio");
         }
     }
 
