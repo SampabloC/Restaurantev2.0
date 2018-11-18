@@ -148,60 +148,31 @@ public class Platos {
     }
 
     void Eliminar(int num) {
-        /*
-        platos aux = inicio;
-        platos ant = null;
 
-        while (aux != null) {
-            if (aux.nummesa == n) {
-                cuenta = cuenta + aux.precio;
-                if (aux.sigue != null) {
-                    aux = aux.sigue;
-                } else {
-                    aux = null;
-                }
-            } else {
-                aux = aux.sigue;
-            }
-        break;
-        }
-          if(eliminar < inicio || eliminar > fin.edad) {
-            System.out.println("El dato no existe");
-          }else {
-            if(num == inicio.edad) {
-              if(inicio == fin) { //validar si hay un solo nodo
-                inicio = null;
-                fin == null;
-              }else {
-                inicio = incio.sigue;
-              }
-            }else {
-              atras = inicio;
-              aux = inicio.sigue;
-              while(aux != null) {
-                if(eliminar == aux.edad) {
-                  atras.sigue = aux.sigue;
-                  i
-                  f(aux == fin) {
+        platos aux = inicio;
+        platos atras = null;
+        System.out.print("Qué dato deseas eliminar?: ");
+        String eliminar = leer.nextLine().toLowerCase();
+                atras = inicio;
+                aux = inicio.sigue;
+                while (aux != null) {
+                    if (eliminar.equals(aux.platillo) ) {
+                        atras.sigue = aux.sigue;
+                        if(aux == fin) {
                     fin = atras;
-                  }
-                  System.out.println("El\b" + elminar + "\bfue eliminado");
-                  aux = null;
-                }else {
-                  if(aux.edad > eliminar) {
-                    System.out.println("El dato no existe");
-                    aux = null;
-                  }else {  
-                    atras = aux;  // avanza de nodos para seguir buscando
-                    aux = atras.sigue;
-                  }
-                }
-              }//while
-            }//else
-          }//else
-        }//void
-         */
-    }
+                        }
+                        System.out.println("El\b" + eliminar + "\bfue eliminado");
+                        aux = null;
+                    } else {
+                        
+                            atras = aux;  // avanza de nodos para seguir buscando
+                            aux = atras.sigue;
+                        }
+                    }
+                }//while
+            
+        
+    
 
     void cuentaGeneral() {
         int opc = 0;
