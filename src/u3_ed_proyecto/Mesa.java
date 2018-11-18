@@ -5,7 +5,7 @@ import static u3_ed_proyecto.U3_ED_PROYECTO.leer;
 
 /**
  *
- * @author Javier Ismael Sampablo Cuevas
+ * @author Javier Ismael Sampablo Cuevas && David Oliver Cano Pizano
  */
 public class Mesa {
 
@@ -28,22 +28,6 @@ public class Mesa {
     mesa inicio;
     mesa fin;
 
-    /* void Disponibilidad(int n) {
-        mesa aux = inicio;
-        boolean pasa = false;
-        while (aux != null) {
-            if (n == aux.mesa) {
-                System.out.println("Mesa ocupada");
-                aux = null;
-                pasa = true;
-            } else {
-                aux = aux.sigue;
-            }
-        }
-        if (pasa == false) {
-            Registro(n);
-        }
-    }*/
     void Insertar(mesa nuevo) {
         mesa aux;
         if (inicio == null) {
@@ -65,7 +49,7 @@ public class Mesa {
     void Registro(int nummesa) {
         // int nummesa = 0;
         mesa nuevo = new mesa();
-        /*System.out.println("Teclea el número de mesa: ");
+        /*System.out.println("Teclea el número de mesa: ");                 //OPCIONAL - Borrar
         do {
             try {
                 nummesa = leer.nextInt();
@@ -85,6 +69,7 @@ public class Mesa {
         nuevo.mesero = leer.nextLine();
         System.out.print("Teclea el Nombre del Cliente: ");
         nuevo.nombre = leer.nextLine().toLowerCase();
+        nuevo.platos = null;
         this.Insertar(nuevo);
         System.out.println("¿Tomar pedido?[S/N]");
         String ch = leer.next().toUpperCase();
@@ -113,18 +98,10 @@ public class Mesa {
                         System.out.println(aux.mesa + " " + aux.mesero + " " + aux.nombre);
                         aux = null;
                     }
-                    //       System.out.println(aux.mesa + " " + aux.mesero + " " + aux.nombre); 
-                    //     aux = null;
                 } else {
                     aux = aux.sigue;
                 }
             }
-            /*System.out.println("Número de mesa\tMesero\tNombre");
-            while (aux != null) {
-                System.out.println(aux.mesa + " " + aux.mesero + " " + aux.nombre);
-                aux = aux.sigue;
-            }
-             */
             System.out.println("Cuenta");
             p.Cuenta();
             System.out.println("¿Mostrar Platos?[S/N]");
