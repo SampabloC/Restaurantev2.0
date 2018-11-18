@@ -158,7 +158,7 @@ public class Platos {
         System.out.println("3. Ensalada\t$62.90");
         System.out.println("4. Arroz\t$50.00");
         System.out.println("5. Pizza\t$99.99");
-        System.out.println("6. Lasagna\t$65.20");
+        System.out.println("6. Lasagna\t$62.50");
         System.out.println("\n\n(Todos los alimentos incluyen bebida)");
     }
 
