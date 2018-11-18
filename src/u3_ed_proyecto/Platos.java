@@ -154,7 +154,7 @@ public class Platos {
         System.out.println("                Menú");
         System.out.println("Platillo\tPrecio");
         System.out.println("1. Pasta\t$85.50");
-        System.out.println("2. Sopa\t$42.00");
+        System.out.println("2. Sopa    \t$42.00");
         System.out.println("3. Ensalada\t$62.90");
         System.out.println("4. Arroz\t$50.00");
         System.out.println("5. Pizza\t$99.99");
