@@ -77,25 +77,6 @@ public class Platos {
     void Cuenta() {
         platos aux = inicio;
         double cuenta = 0;
-        /*                              //sacar la cuenta de una sola mesa
-        if (aux == null) {
-            System.out.println("Mesas vacias");
-        } else {
-            System.out.println("Seleccione mesa a sacar cuenta (1-5)");
-            int num = leer.nextInt();
-            while (aux != null) {
-                if (num == aux.mesa) {
-                    while (aux != null) {
-            cuenta = cuenta + aux.precio;        
-                        aux = null;
-                    }
-                    //       System.out.println(aux.mesa + " " + aux.mesero + " " + aux.nombre); 
-                    //     aux = null;
-                } else {
-                    aux = aux.sigue;
-                }
-            }
-         */
         while (aux != null) {
             cuenta = cuenta + aux.precio;
             aux = aux.sigue;
@@ -163,12 +144,6 @@ public class Platos {
                 if (aux == fin) {
                     fin = atras;
                 }
-                //    }
-//                    if (eliminar.equals(aux.platillo) ) {
-                //                      atras.sigue = aux.sigue;
-                //                    if(aux == fin) {
-                //              fin = atras;
-                //                }
                 System.out.println("hola");
                 if (aux.sigue != null) {
                     aux = aux.sigue;
@@ -176,11 +151,11 @@ public class Platos {
                     aux = null;
                 }
             } else {
-                atras = aux;  // avanza de nodos para seguir buscando
+                atras = aux;
                 aux = atras.sigue;
             }
         }
-    }//while
+    }
 
     void cuentaGeneral() {
         int opc = 0;
