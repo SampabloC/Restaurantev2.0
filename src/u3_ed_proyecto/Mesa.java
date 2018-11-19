@@ -138,6 +138,15 @@ public class Mesa {
         if (!this.Vacio()) {
             System.out.print("Cliente a salir: ");
             salida = leer.next().toLowerCase();
+            mesa aux2 = inicio;
+            while (aux2 != null) {
+                if (aux2.nombre.equals(salida)) {
+                    n = aux2.mesa;
+                    aux2 = null;
+                } else {
+                    aux2 = aux2.sigue;
+                }
+            }
             if (salida.equals(inicio.nombre)) {
                 if (inicio == fin) {
                     inicio = null;
@@ -156,7 +165,6 @@ public class Mesa {
                     mesa aux = inicio.sigue;
                     while (aux != null) {
                         if (salida.equals(aux.nombre)) {
-                            n = aux.mesa;
                             aux.atras.sigue = aux.sigue;
                             aux.sigue.atras = aux.atras;
                             salio = true;
@@ -172,6 +180,7 @@ public class Mesa {
             } else {
                 System.out.println("Sale el cliente " + salida);
                 p.Cuenta1(n);
+                p.Eliminar(n);
             }
         } else {
             System.out.println("Restaurante vacio");

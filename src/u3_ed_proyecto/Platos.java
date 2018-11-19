@@ -52,7 +52,6 @@ public class Platos {
     }
 
     void Insertar(platos nuevo) {
-        System.out.println(nuevo);
         if (inicio == null) {
             inicio = nuevo;
             fin = nuevo;
@@ -147,32 +146,41 @@ public class Platos {
         this.Insertar(nuevo);
     }
 
-    void Eliminar(int num) {
+    void Eliminar(int nummesa) {
 
         platos aux = inicio;
         platos atras = null;
-        System.out.print("Qué dato deseas eliminar?: ");
-        String eliminar = leer.nextLine().toLowerCase();
-                atras = inicio;
-                aux = inicio.sigue;
-                while (aux != null) {
-                    if (eliminar.equals(aux.platillo) ) {
-                        atras.sigue = aux.sigue;
-                        if(aux == fin) {
+        atras = inicio;
+        aux = inicio.sigue;
+        if (inicio == fin) {
+            inicio = null;
+            fin = null;
+        }
+        while (aux != null) {
+            System.out.println("00000000000000000");
+            if (aux.nummesa == nummesa) {
+                atras.sigue = aux.sigue;
+                if (aux == fin) {
                     fin = atras;
-                        }
-                        System.out.println("El\b" + eliminar + "\bfue eliminado");
-                        aux = null;
-                    } else {
-                        
-                            atras = aux;  // avanza de nodos para seguir buscando
-                            aux = atras.sigue;
-                        }
-                    }
-                }//while
-            
-        
-    
+                }
+                //    }
+//                    if (eliminar.equals(aux.platillo) ) {
+                //                      atras.sigue = aux.sigue;
+                //                    if(aux == fin) {
+                //              fin = atras;
+                //                }
+                System.out.println("hola");
+                if (aux.sigue != null) {
+                    aux = aux.sigue;
+                } else {
+                    aux = null;
+                }
+            } else {
+                atras = aux;  // avanza de nodos para seguir buscando
+                aux = atras.sigue;
+            }
+        }
+    }//while
 
     void cuentaGeneral() {
         int opc = 0;
