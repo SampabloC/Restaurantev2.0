@@ -39,18 +39,22 @@ public class U3_ED_PROYECTO {
             switch (opc) {
                 case 1:
                     int nummes = 0;
+                    boolean pasa = true;
                     System.out.println("\n\tAsignación de Mesa");
-                    System.out.println("Seleccione una mesa (1-5)");
                     do {
+                    System.out.println("Seleccione una mesa (1-5)");
                         try {
                             nummes = leer.nextInt();
                             leer.nextLine();
                         } catch (java.util.InputMismatchException e) {
                             leer.nextLine();
                             System.out.println("No es valido el dato");
+                            pasa = false;
                         }
-                    } while (nummes < 1 && nummes > 5);
-                    m.Registro(nummes);
+                    } while (nummes < 1 || nummes > 5);
+                    if (pasa == true) {
+                        m.Registro(nummes);
+                    }
                     break;
                 case 2:
                     m.Mostrar();
