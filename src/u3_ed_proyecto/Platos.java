@@ -66,17 +66,19 @@ public class Platos {
         if (aux == null) {
             System.out.println("Mesas vacias");
         } else {
+            System.out.println("\n_______________________________________");
             System.out.println("Comensal\tPlatillo\tCosto");
+            System.out.println("-------------------------------------------------------");
             while (aux != null) {
                 if (aux.nummesa == nummesa) {
-                System.out.println(aux.comensal + " " + aux.platillo + " " + aux.precio);                    
+                    System.out.printf("%-25s%-23s%s\n",aux.comensal,aux.platillo,aux.precio);
                     if (aux.sigue != null) {
                         aux = aux.sigue;
-                    }  else {
+                    } else {
                         aux = null;
                     }
-                }else {
-                aux = aux.sigue;
+                } else {
+                    aux = aux.sigue;
                 }
             }
         }
@@ -136,30 +138,33 @@ public class Platos {
     }
 
     void Eliminar(int nummesa) {
-
         platos aux = inicio;
         platos atras = null;
-        atras = inicio;
-        aux = inicio.sigue;
-        if (inicio == fin) {
-            inicio = null;
-            fin = null;
-        }
-        while (aux != null) {
-            if (aux.nummesa == nummesa) {
-                atras.sigue = aux.sigue;
-                if (aux == fin) {
-                    fin = atras;
-                }
-                if (aux.sigue != null) {
-                    aux = aux.sigue;
-                } else {
-                    aux = null;
-                }
-            } else {
-                atras = aux;
-                aux = atras.sigue;
+        if (!this.Vacio()) {
+            atras = inicio;
+            aux = inicio.sigue;
+            if (inicio == fin) {
+                inicio = null;
+                fin = null;
             }
+            while (aux != null) {
+                if (aux.nummesa == nummesa) {
+                    atras.sigue = aux.sigue;
+                    if (aux == fin) {
+                        fin = atras;
+                    }
+                    if (aux.sigue != null) {
+                        aux = aux.sigue;
+                    } else {
+                        aux = null;
+                    }
+                } else {
+                    atras = aux;
+                    aux = atras.sigue;
+                }
+            }
+        } else {
+            System.out.println("No hay platos");
         }
     }
 
@@ -193,5 +198,9 @@ public class Platos {
             }
         }
         System.out.println("La cuenta de la mesa " + n + " es de $" + cuenta);
+    }
+
+    boolean Vacio() {
+        return inicio == null;
     }
 }

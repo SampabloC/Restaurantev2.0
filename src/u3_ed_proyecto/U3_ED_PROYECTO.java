@@ -23,6 +23,7 @@ public class U3_ED_PROYECTO {
             System.out.println("3.- Salida de clientes."); //bajas
             System.out.println("4.- Reorden de platos");
             System.out.println("5.- Salida del menú.");
+            System.out.printf("%12s%12s\n", "texto","texto2");
             do {
                 System.out.print("Opción: ");
                 try {

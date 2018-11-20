@@ -117,11 +117,14 @@ public class Mesa {
         } else {
          //   System.out.println("Seleccione mesa a mostrar (1-5)");
            // int num = leer.nextInt();
+            System.out.println("_____________________________________________________");
             System.out.println("Número de mesa\tMesero\tNombre");
+            System.out.println("--------------------------------------------------------------------------");
             while (aux != null) {
             //    if (num == aux.mesa) {
                  //   while (aux != null) {
-                        System.out.println(aux.mesa + "\t" + aux.mesero + "\t" + aux.nombre);
+                        //System.out.println(aux.mesa + "\t" + aux.mesero + "\t" + aux.nombre);
+                        System.out.printf("%-51s%-23s%s\n", aux.mesa,aux.mesero,aux.nombre);
                      //   aux = null;
                    // }
               //  } else {
