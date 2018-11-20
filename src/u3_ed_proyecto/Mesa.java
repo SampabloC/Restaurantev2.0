@@ -46,12 +46,13 @@ public class Mesa {
     }
 
     void Registro(int nummesa) {
-        boolean libre = true;
+        boolean libre = true, k = true;
         if (!this.Vacio()) {
             mesa aux = inicio;
             while (aux != null) {
                 if (aux.mesa == nummesa) {
                     System.out.println("Mesa ocupada");
+                    k=false;
                     libre = false;
                     aux = null;
                 } else {
@@ -84,42 +85,58 @@ public class Mesa {
 
     void Reordenar(int nummesa) {
         if (!this.Vacio()) {
+            mesa aux2 = inicio;
+            while (aux2 != null) {
+                if (aux2.mesa == nummesa) {
+                    p.Eliminar(nummesa);
+                    if (aux2.sigue != null) {
+                        aux2 = aux2.sigue;
+                    } else {
+                        aux2 = null;
+                    }
+                } else {
+                    aux2 = aux2.sigue;
+                }
+            }
             mesa aux = inicio;
             while (aux != null) {
                 if (aux.mesa == nummesa) {
                     p.Registro(nummesa);
                     aux = null;
-                }else {
+                } else {
                     aux = aux.sigue;
                 }
             }
         }
     }
+
     void Mostrar() {
         mesa aux = inicio;
         if (aux == null) {
             System.out.println("Mesas vacias");
         } else {
-            System.out.println("Seleccione mesa a mostrar (1-5)");
-            int num = leer.nextInt();
+         //   System.out.println("Seleccione mesa a mostrar (1-5)");
+           // int num = leer.nextInt();
             System.out.println("Número de mesa\tMesero\tNombre");
             while (aux != null) {
-                if (num == aux.mesa) {
-                    while (aux != null) {
+            //    if (num == aux.mesa) {
+                 //   while (aux != null) {
                         System.out.println(aux.mesa + "\t" + aux.mesero + "\t" + aux.nombre);
-                        aux = null;
-                    }
-                } else {
-                    aux = aux.sigue;
+                     //   aux = null;
+                   // }
+              //  } else {
+                   aux = aux.sigue;
                 }
-            }
-            System.out.println("¿Mostrar Cuenta y platillos?[S/N]");
+         //   }
+           System.out.println("¿Mostrar platillos?[S/N]");
             String ch = leer.next().toUpperCase();
             if ("S".equals(ch) || "N".equals(ch)) {
                 if ("S".equals(ch)) {
-                    System.out.println("Cuenta");
-                    p.cuentaGeneral();
-                    p.Mostrar();
+                    //System.out.println("Cuenta");
+                    System.out.println("nummesa");
+                    int n = leer.nextInt();
+                   // p.cuentaGeneral();
+                    p.Mostrar(n);
                 }
             } else {
                 System.out.println("Selección invalida");

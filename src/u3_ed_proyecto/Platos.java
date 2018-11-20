@@ -61,15 +61,23 @@ public class Platos {
         }
     }
 
-    void Mostrar() {
+    void Mostrar(int nummesa) {
         platos aux = inicio;
         if (aux == null) {
             System.out.println("Mesas vacias");
         } else {
             System.out.println("Comensal\tPlatillo\tCosto");
             while (aux != null) {
-                System.out.println(aux.comensal + " " + aux.platillo + " " + aux.precio);
+                if (aux.nummesa == nummesa) {
+                System.out.println(aux.comensal + " " + aux.platillo + " " + aux.precio);                    
+                    if (aux.sigue != null) {
+                        aux = aux.sigue;
+                    }  else {
+                        aux = null;
+                    }
+                }else {
                 aux = aux.sigue;
+                }
             }
         }
     }
@@ -138,13 +146,11 @@ public class Platos {
             fin = null;
         }
         while (aux != null) {
-            System.out.println("00000000000000000");
             if (aux.nummesa == nummesa) {
                 atras.sigue = aux.sigue;
                 if (aux == fin) {
                     fin = atras;
                 }
-                System.out.println("hola");
                 if (aux.sigue != null) {
                     aux = aux.sigue;
                 } else {
@@ -167,6 +173,7 @@ public class Platos {
                 System.out.println("Dato Invalido");
             }
         } while (opc < 1 && opc > 5);
+        System.out.println("Mostrar platillos");
         this.Cuenta1(opc);
     }
 
