@@ -28,7 +28,6 @@ public class Mesa {
     mesa fin;
 
     void Insertar(mesa nuevo) {
-        mesa aux;
         if (inicio == null) {
             inicio = nuevo;
             fin = nuevo;
@@ -38,9 +37,26 @@ public class Mesa {
                 inicio.atras = nuevo;
                 inicio = nuevo;
             } else {
-                inicio.sigue = nuevo;
+                /*inicio.sigue = nuevo;
                 nuevo.atras = inicio;
-                fin = nuevo;
+                fin = nuevo;*/
+                if (nuevo.mesa > fin.mesa) {
+                    fin.sigue = nuevo;
+                    nuevo.atras = fin;
+                    fin = nuevo;
+                } else {
+                    mesa aux = inicio.sigue;
+                    while (aux != null) {
+                        if (nuevo.mesa <= aux.mesa) {
+                            nuevo.atras = aux;
+                            nuevo.sigue = aux;
+                            aux.atras = nuevo;
+                            aux = null;
+                        } else {
+                            aux = aux.sigue;
+                        }
+                    }
+                }
             }
         }
     }
@@ -52,7 +68,7 @@ public class Mesa {
             while (aux != null) {
                 if (aux.mesa == nummesa) {
                     System.out.println("Mesa ocupada");
-                    k=false;
+                    k = false;
                     libre = false;
                     aux = null;
                 } else {
@@ -115,30 +131,30 @@ public class Mesa {
         if (aux == null) {
             System.out.println("Mesas vacias");
         } else {
-         //   System.out.println("Seleccione mesa a mostrar (1-5)");
-           // int num = leer.nextInt();
+            //   System.out.println("Seleccione mesa a mostrar (1-5)");
+            // int num = leer.nextInt();
             System.out.println("_____________________________________________________");
             System.out.println("Número de mesa\tMesero\tNombre");
             System.out.println("--------------------------------------------------------------------------");
             while (aux != null) {
-            //    if (num == aux.mesa) {
-                 //   while (aux != null) {
-                        //System.out.println(aux.mesa + "\t" + aux.mesero + "\t" + aux.nombre);
-                        System.out.printf("%-51s%-23s%s\n", aux.mesa,aux.mesero,aux.nombre);
-                     //   aux = null;
-                   // }
-              //  } else {
-                   aux = aux.sigue;
-                }
-         //   }
-           System.out.println("¿Mostrar platillos?[S/N]");
+                //    if (num == aux.mesa) {
+                //   while (aux != null) {
+                //System.out.println(aux.mesa + "\t" + aux.mesero + "\t" + aux.nombre);
+                System.out.printf("%-51s%-23s%s\n", aux.mesa, aux.mesero, aux.nombre);
+                //   aux = null;
+                // }
+                //  } else {
+                aux = aux.sigue;
+            }
+            //   }
+            System.out.println("¿Mostrar platillos?[S/N]");
             String ch = leer.next().toUpperCase();
             if ("S".equals(ch) || "N".equals(ch)) {
                 if ("S".equals(ch)) {
                     //System.out.println("Cuenta");
                     System.out.println("nummesa");
                     int n = leer.nextInt();
-                   // p.cuentaGeneral();
+                    // p.cuentaGeneral();
                     p.Mostrar(n);
                 }
             } else {
