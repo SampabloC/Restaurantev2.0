@@ -40,11 +40,24 @@ public class Platos {
 
         } while (bol == false);
         this.Menu();
+        System.out.println("Selección de platillos");
         for (int i = 1; i <= num; i++) {
             platos nuevo = new platos();
             nuevo.comensal = i;
-            System.out.println("Registre plato del comensal no. " + i + " (Seleccione el número del menú).");
-            int plato = leer.nextInt();
+            int plato=0;
+            do {
+                System.out.println("Comensal no. " + i + ".");
+                try {
+                    plato = leer.nextInt();
+                    bol = true;
+                    leer.nextLine();
+                } catch (java.util.InputMismatchException e) {
+                    leer.nextLine();
+                    System.out.println("No es un dato entero");
+                    bol = false;
+                }
+            } while (bol == false);
+            
             nuevo.nummesa = nummesa;
             this.Platillo(plato, nuevo, nummesa);
             nuevo.sigue = null;

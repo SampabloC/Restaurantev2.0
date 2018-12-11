@@ -152,8 +152,19 @@ public class Mesa {
             if ("S".equals(ch) || "N".equals(ch)) {
                 if ("S".equals(ch)) {
                     //System.out.println("Cuenta");
-                    System.out.println("nummesa");
-                    int n = leer.nextInt();
+                    int n=0;
+                    do {
+                        System.out.println("Número de mesa: ");
+                        try {
+                            n = leer.nextInt();
+                            bol = true;
+                            leer.nextLine();
+                        } catch (java.util.InputMismatchException e) {
+                            leer.nextLine();
+                            System.out.println("No es un dato entero");
+                            bol = false;
+                        }
+                    } while (bol == false);
                     // p.cuentaGeneral();
                     p.Mostrar(n);
                 }
